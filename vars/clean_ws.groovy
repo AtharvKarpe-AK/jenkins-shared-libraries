@@ -1,4 +1,7 @@
 def call() {
-    echo "Cleaning up workspace..."
-    cleanWs()
+
+echo "Cleaning the workspace"
+
+cleanWs()
+
 }
