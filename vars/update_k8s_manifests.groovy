@@ -35,12 +35,12 @@ def call(Map config = [:]) {
             
             # Ensure ingress is using the correct domain
             if [ -f "${manifestsPath}/10-ingress.yaml" ]; then
-                sed -i "s|host: .*|host: 3.249.24.205.nip.io|g" ${manifestsPath}/10-ingress.yaml
+                sed -i "s|host: .*|host: "correct_name_after_installing_EKS_ingress_controller"|g" ${manifestsPath}/10-ingress.yaml
             fi
 
             # replace the correct IP in configmap and ingress file
-            sed -i "s|NEXT_PUBLIC_API_URL: .*|NEXT_PUBLIC_API_URL: "http://3.249.24.205.nip.io:3000/api"|g" ${manifestsPath}/04-configmap.yaml
-            sed -i "s|NEXTAUTH_URL: .*|NEXTAUTH_URL: "http://3.249.24.205.nip.io:3000"|g" ${manifestsPath}/04-configmap.yaml
+            sed -i "s|NEXT_PUBLIC_API_URL: .*|NEXT_PUBLIC_API_URL: "http://3.249.24.205.nip.io:30000/api"|g" ${manifestsPath}/04-configmap.yaml
+            sed -i "s|NEXTAUTH_URL: .*|NEXTAUTH_URL: "http://3.249.24.205.nip.io:30000"|g" ${manifestsPath}/04-configmap.yaml
             
             
             # Check for changes
